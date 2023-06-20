@@ -41,7 +41,6 @@ class PronunciationCombinationGenerator:
         return [LanguageUtils().splitHiraganaIntoPhonemes(combination) for combination in combinations]
 
     def _createCombinationsUsingCombinationPhonemeRules2(self, phonemes: List[str]) -> List[List[str]]:
-        print(phonemes)
         combinations: Set[str] = {''.join(phonemes)}
         character_pairs_to_change: List[(int, List[str])] = []
 
@@ -56,11 +55,8 @@ class PronunciationCombinationGenerator:
                 alternate_phonemes = rule(phonemeA, phonemeB)
                 if alternate_phonemes is not None:
                     character_pairs_to_change.append((index, alternate_phonemes))
-        
-        print(character_pairs_to_change)
 
         character_pairs_to_change_combinations = ListUtils().powerset(character_pairs_to_change)
-        print(character_pairs_to_change_combinations)
         for combination in character_pairs_to_change_combinations:
             copy = phonemes.copy()
             # iterate in reverse order so we can change the characters without affecting index

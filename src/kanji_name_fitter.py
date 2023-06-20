@@ -22,12 +22,6 @@ class KanjiNameFitter:
         all_possible_kanjis = []
         for c in combinations:
             all_possible_kanjis.extend(self._fit_kanjis(c))
-
-        for ks in all_possible_kanjis:
-            k_str = ""
-            for k in ks:
-                k_str += k.kanji
-            print(k_str)
         
         best_kanjis = []
         best_weight = -1

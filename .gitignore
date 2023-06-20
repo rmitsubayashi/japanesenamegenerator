@@ -1,5 +1,5 @@
 __pycache__/
 *.py[cod]
 *$py.class
-GoogleNews-vectors-negative300.bin
 db.sqlite3
+GoogleNews-vectors-negative300-SLIM.bin.gz

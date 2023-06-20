@@ -5,8 +5,9 @@ from typing import List
 class Word2VecApi:
     def __init__(self):
         print("building word vector")
-        # takes a while to build (about 30 seconds)
-        self.model = gensim.models.KeyedVectors.load_word2vec_format("data/GoogleNews-vectors-negative300.bin", binary=True)
+        # since the original Google News model is too large for PythonAnywhere's free plan (1.5GB),
+        # we use a slim model made here https://github.com/eyaler/word2vec-slim
+        self.model = gensim.models.KeyedVectors.load_word2vec_format("data/GoogleNews-vectors-negative300-SLIM.bin.gz", binary=True)
         print("done building")
     
     """
