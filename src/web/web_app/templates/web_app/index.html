@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'web_app/style.css' %}">
+
+</head>
+
+<body>
+    <h3>Write your name in kanji!</h3>
+    <form method="post">
+    {% csrf_token %}
+        <label for="name">Your Name : </label>
+        <input type="text" id="name_input" name="name" value=""><br><br>
+        <label>Words that describe you (hobbies, personality, physical traits, etc.)</label>
+        <div class="tag-box">
+            <ul>
+                <input type="text" placeholder="Use comma to separate words!">
+            </ul>
+        </div>
+        
+        <button type="button" onclick="submitForm()">Generate</button>
+    </form>
+
+    <script src="{% static 'web_app/script.js' %}">
+    </script>
+
+    <script type="text/javascript">
+        presetForm("{{name}}", "{{user_properties}}")
+    </script>
+
+    {% if kanjis %}
+    <h4>Result</h4>
+    <div class="result">
+        <ruby>
+            {% for k in kanjis %}
+                <rb>{{ k.kanji }}</rb><rt>{{ k.selected_pronunciation }}</rt>
+            {% endfor %}
+        </ruby>
+
+        <h5>Relevant phrases based on your input</h5>
+        {% for phrase in relevant_phrases %}
+            {{ phrase.japanese }} ( {{ phrase.english }} )
+        {% empty %}
+            None
+        {% endfor %}
+        
+        {% endif %}
+    </div>
+</body>
+
+</html>
