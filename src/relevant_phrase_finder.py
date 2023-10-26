@@ -8,7 +8,7 @@ from typing import List
 class RelevantPhraseFinder:
     def __init__(self):
         self.wordnet_api = WordNetApi()
-        self.word2vec_api = Word2VecApi()
+        # self.word2vec_api = Word2VecApi()
         self.kanji_db = KanjiDB()
 
     """
@@ -17,8 +17,8 @@ class RelevantPhraseFinder:
     """
     def findRelevantPhrases(self, base_word: str) -> List[RelevantPhrase]:
         relevant_phrases: List[RelevantPhrase] = []
-        word2vec_relevant_phrases = self._find_relevant_phrases_by_word2vec(base_word)
-        relevant_phrases.extend(word2vec_relevant_phrases)
+        # word2vec_relevant_phrases = self._find_relevant_phrases_by_word2vec(base_word)
+        # relevant_phrases.extend(word2vec_relevant_phrases)
         wordnet_relevant_phrases = self._find_relevant_phrases_by_wordnet(base_word)
         relevant_phrases.extend(wordnet_relevant_phrases)
 

@@ -1,7 +1,7 @@
 from django.shortcuts import render
 import sys
 import os
-sys.path.append(os.path.dirname(os.path.realpath(__file__)) + "/../../../src")
+sys.path.append(os.path.dirname(os.path.realpath(__file__)) + "/../src")
 from kanji_generator import KanjiGenerator
 
 kanji_generator = KanjiGenerator()

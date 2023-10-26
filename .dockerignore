@@ -2,3 +2,4 @@ fly.toml
 .git/
 *.sqlite3
 .env
+/data/GoogleNews-vectors-negative300-SLIM.bin.gz
